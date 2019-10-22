@@ -1,0 +1,16 @@
+{
+  "extends": "crockford",
+  "env": {
+      "browser": true,
+      "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module"
+  },
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "curly": [2, "multi-line"],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
+}

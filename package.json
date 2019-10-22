@@ -1,0 +1,31 @@
+{
+  "name": "laravel-mix-twig",
+  "version": "0.0.0",
+  "description": "Laravel Mix extension that generates HTML from Twig templates",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideil/laravel-mix-twig.git"
+  },
+  "keywords": [
+    "twig",
+    "html",
+    "templating",
+    "laravel-mix",
+    "laravel-mix-extension",
+    "laravel-mix-plugin"
+  ],
+  "author": "Serhii Vlasiuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ideil/laravel-mix-twig/issues"
+  },
+  "homepage": "https://github.com/ideil/laravel-mix-twig#readme",
+  "peerDependencies": {
+    "cross-env": "^6.0.0",
+    "laravel-mix": "^5.0.0"
+  }
+}
