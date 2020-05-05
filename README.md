@@ -1,5 +1,8 @@
 # Laravel Mix Twig
 
+[![npm](https://badge.fury.io/js/laravel-mix-twig.svg)](https://badge.fury.io/js/laravel-mix-twig)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE.md)
+
 Laravel Mix extension that generates HTML from Twig templates.
 
 ## Installing

@@ -143,6 +143,10 @@ class Twig {
                                 .replace(this.config.root, '')
                                 .replace(path.extname(entry), fileExt);
 
+                    if (this.config.replaceOutputPath.length) {
+                        filePath = filePath.replace(this.config.replaceOutputPath, '');
+                    }
+
                     HtmlEntriesConfig.push({
                         ...this.config.html,
                         template: entry,
