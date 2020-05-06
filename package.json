@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-twig",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Laravel Mix extension that generates HTML from Twig templates",
   "main": "src/index.js",
   "scripts": {
