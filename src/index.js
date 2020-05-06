@@ -136,7 +136,7 @@ class Twig {
                 });
 
                 Entries.forEach(entry => {
-                    const
+                    let
                         filePath = this.config.flatten ?
                             path.parse(entry).name + fileExt :
                             entry
