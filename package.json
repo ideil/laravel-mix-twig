@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-twig",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Laravel Mix extension that generates HTML from Twig templates",
   "main": "src/index.js",
   "scripts": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/ideil/laravel-mix-twig#readme",
   "peerDependencies": {
-    "cross-env": "^6.0.0",
-    "laravel-mix": "^5.0.0"
+    "laravel-mix": "^6.0.0"
   }
 }

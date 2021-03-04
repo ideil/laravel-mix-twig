@@ -1,12 +1,12 @@
-/* globals path */
+//# Laravel Mix Twig
+//
 
 const
     NAME = 'twig',
-    DEPENDENCIES = ['glob', 'fs-extra', 'js-yaml', 'html-webpack-plugin@next', 'raw-loader', 'twig-html-loader', 'js-beautify'],
-
+    DEPENDENCIES = ['glob', 'fs-extra', 'js-yaml', 'html-webpack-plugin', 'raw-loader', 'twig-html-loader', 'js-beautify'],
     mix = require('laravel-mix');
 
-let glob, fse, yaml, HtmlWebpackPlugin;
+let glob, path, fse, yaml, HtmlWebpackPlugin;
 
 class TwigBeautify {
     constructor(config) {
@@ -39,6 +39,7 @@ class Twig {
 
     boot() {
         glob = require('glob');
+        path = require('path'),
         fse = require('fs-extra');
         yaml = require('js-yaml');
         HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -47,6 +48,7 @@ class Twig {
     register(config = {}) {
         this.config = Object.assign({
             enabled: true,
+            dir: __dirname.split('node_modules')[0],
             root: './resources/twig',
             entries: ['**/!(_)*.twig'],
             output: './html',
@@ -90,7 +92,8 @@ class Twig {
                 Data = getData(context);
 
             Data.paths.forEach(dataPath => {
-                context.addDependency(dataPath); // Force webpack to watch file
+                // Force webpack to watch file
+                context.addDependency(path.join(this.config.dir, dataPath));
             });
 
             return Data.merged || {};
@@ -118,9 +121,6 @@ class Twig {
         const
             addPlugin = body => {
                 Plugins = body ? Plugins.concat(body) : Plugins;
-            },
-            handlePluginConfig = config => {
-                return config ? typeof config === 'object' ? config : {} : false;
             },
             makeHtmlConfig = () => {
                 let
@@ -156,11 +156,17 @@ class Twig {
 
                 return HtmlEntriesConfig;
             },
-            HtmlBeautifyConfig = handlePluginConfig(this.config.beautify),
-            HtmlBeautify = HtmlBeautifyConfig ? new TwigBeautify(HtmlBeautifyConfig) : false;
+            HtmlBeautify =
+                this.config.beautify ?
+                    new TwigBeautify(this.config.beautify) :
+                    false;
 
-        addPlugin(makeHtmlConfig().map(config => new HtmlWebpackPlugin(config)));
-        addPlugin(HtmlBeautify);
+        [
+            makeHtmlConfig().map(config => new HtmlWebpackPlugin(config)),
+            HtmlBeautify
+        ].forEach(Plugin => {
+            addPlugin(Plugin);
+        });
 
         return Plugins;
     }
