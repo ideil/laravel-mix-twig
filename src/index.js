@@ -55,6 +55,7 @@ class Twig {
             data: 'data/**/*.{y?(a|)ml,json}',
             dataExtend: {},
             flatten: false,
+            replaceOutputPath: '',
             loader: {},
             html: {},
             beautify: false,

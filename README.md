@@ -34,11 +34,13 @@ You can configure extension with custom options as well.
 | Key           | Type                  | Default               | Description |
 |---------------|-----------------------|-----------------------|-------------|
 | `enabled`     | `{Boolean}`           | `true`                | Determines whether HTML should be generated. |
+| `dir`         | `{String}`            | `'__dirname.split('node_modules')[0]'` | Path to project directory |
 | `root`        | `{String}`            | `'./resources/twig'`  | Path to root directory of Twig templates. |
 | `entries`     | `{Array}`             | `['**/!(_)*.twig']`   | Match entries with `glob`. |
 | `output`      | `{String}`            | `'./html'`            | Path to HTML output. |
 | `data`        | `{String}`            | `'data/**/*.{y?(a\|)ml,json}'` | Path to YAML and/or JSON files in root directory. |
 | `dataExtend`  | `{Object}`            | `{}`                  | Extend data manually. |
+| `replaceOutputPath` | `{String}`      | `''`                  | Removes symbols in output path |
 | `flatten`     | `{Boolean}`           | `false`               | When enabled, all HTML will be placed in the output folder without preserving the directory structure. |
 | `loader` *    | `Object`              | `{}`                  | `twig-html-loader` [options](https://github.com/radiocity/twig-html-loader#options). |
 | `html` *      | `Object`              | `{}`                  | `html-webpack-plugin` [options](https://github.com/jantimon/html-webpack-plugin#options). |
