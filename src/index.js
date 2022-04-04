@@ -74,7 +74,7 @@ class Twig {
                 Paths.forEach(filePath => {
                     const
                         Content = /y(?:a|)ml/.test(path.extname(filePath)) ?
-                            yaml.safeLoad(fse.readFileSync(filePath, 'utf8')) :
+                            yaml.load(fse.readFileSync(filePath, 'utf8')) :
                             context.fs.readJsonSync(filePath, { throws: false });
 
                     Object.assign(Merged, Content);
